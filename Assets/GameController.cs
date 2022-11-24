@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
 
-    private GameObject selectedWizard;
+    public GameObject selectedWizard;
     private int selectedWizardNumber = 0;
 
     [SerializeField] public List<GameObject> wizards;
