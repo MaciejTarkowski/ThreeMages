@@ -3,18 +3,24 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground
+  - Wizard
+  - WetFloor
+  - Fireball
+  - IceWall
+  - IceFloor
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Platforms
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - IceWall
+  - Fireball
+  - Enemy
+  - Wizard
   - 
   - 
   - 
