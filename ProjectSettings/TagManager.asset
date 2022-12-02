@@ -8,6 +8,8 @@ TagManager:
   - Wizard
   - WetFloor
   - Fireball
+  - IceWall
+  - IceFloor
   layers:
   - Default
   - TransparentFX
@@ -15,10 +17,10 @@ TagManager:
   - Platforms
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - IceWall
+  - Fireball
+  - Enemy
+  - Wizard
   - 
   - 
   - 
