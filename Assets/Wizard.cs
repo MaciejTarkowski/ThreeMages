@@ -27,6 +27,8 @@ public class Wizard : MonoBehaviour
     [SerializeField] public float fireballSpeed = 3f;
     [SerializeField] public float nextShot = 0.15f;
     [SerializeField] public float cooldownTime = 0.5f;
+    [SerializeField] public GameObject iceWall;
+    [SerializeField] public GameObject iceFloor;
 
 
     [SerializeField] public float holdTimeToSprint = 2f;
@@ -51,19 +53,6 @@ public class Wizard : MonoBehaviour
     private void Update()
     {
         moveInput = Input.GetAxisRaw("Horizontal");
-        if (moveInput != 0 && isGrounded)
-        {
-            moveInputDownTimer += Time.deltaTime;
-            if (moveInputDownTimer >= holdTimeToSprint)
-            {
-                StartSprint();
-            }
-        }
-        else
-        {
-            StopSprint();
-        }
-
 
         rb.velocity = new Vector2(moveInput * currentSpeed, rb.velocity.y);
 
@@ -89,6 +78,19 @@ public class Wizard : MonoBehaviour
                     CastStorm();
                 }
             }
+
+            if (moveInput != 0 && isGrounded)
+            {
+                moveInputDownTimer += Time.deltaTime;
+                if (moveInputDownTimer >= holdTimeToSprint)
+                {
+                    StartSprint();
+                }
+            }
+            else
+            {
+                StopSprint();
+            }
         }
 
 
@@ -108,6 +110,20 @@ public class Wizard : MonoBehaviour
             else
             {
                 StopGlide();
+            }
+        }
+
+        if (wizardType == WizardType.Ice)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Destroy(GameObject.FindGameObjectWithTag("IceWall"));
+                SpawnIceWall();
+            }
+
+            if (Input.GetButtonDown("Fire2"))
+            {
+                SpawnIceFloor();
             }
         }
 
@@ -188,6 +204,24 @@ public class Wizard : MonoBehaviour
     private void StopGlide()
     {
         rb.gravityScale = initialGravityScale;
+    }
+
+    private void SpawnIceWall()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(castHolder.transform.position, Vector2.down, 20f);
+        if (hit.collider != null && hit.collider.tag == "Ground")
+        {
+            Instantiate(iceWall, hit.point, Quaternion.identity);
+        }
+    }
+    private void SpawnIceFloor()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(castHolder.transform.position, Vector2.down, 20f);
+        if (hit.collider != null && hit.collider.tag == "WetFloor")
+        {
+            Destroy(hit.collider.gameObject);
+            Instantiate(iceFloor, hit.collider.gameObject.transform.position, Quaternion.identity);
+        }
     }
 
 }
