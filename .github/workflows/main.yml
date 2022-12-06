@@ -10,6 +10,7 @@ jobs:
       fail-fast: false
       matrix:
         targetPlatform:
+          - StandaloneWindows64 # Build a Windows 64-bit standalone.
           - WebGL # WebGL.
     steps:
       - uses: actions/checkout@v2
@@ -56,4 +57,3 @@ jobs:
         with:
           branch: gh-pages # The branch the action should deploy to.
           folder: build/WebGL # The folder the action should deploy.
-          target-folder: / # The folder the action should be deployed to within the deployment branch
