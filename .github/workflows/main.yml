@@ -4,7 +4,7 @@ on:
     branches:
       - develop
     types:
-      - closed
+      - opened
 jobs:
   buildForAllSupportedPlatforms:
     if: github.event.pull_request.merged == true
@@ -14,7 +14,6 @@ jobs:
       fail-fast: false
       matrix:
         targetPlatform:
-          - StandaloneWindows64 # Build a Windows 64-bit standalone.
           - WebGL # WebGL.
     steps:
       - uses: actions/checkout@v2
