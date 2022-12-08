@@ -1,8 +1,8 @@
 name: Build project
-
-on: [push]
-  branches: [develop]
-
+on:
+  push:
+    branches:
+      - develop
 jobs:
   buildForAllSupportedPlatforms:
     name: Build for ${{ matrix.targetPlatform }}
