@@ -5282,7 +5282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 554731462}
   - component: {fileID: 554731463}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5998,7 +5998,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1239239283}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LevelEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6034,7 +6034,7 @@ GameObject:
   - component: {fileID: 1371226150}
   - component: {fileID: 1371226152}
   - component: {fileID: 1371226151}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LevelEndCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6389,7 +6389,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1882244177}
   - component: {fileID: 1882244178}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Flag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
