@@ -1,6 +1,7 @@
 name: Build project
 
 on: [push]
+  branches: [develop]
 
 jobs:
   buildForAllSupportedPlatforms:
