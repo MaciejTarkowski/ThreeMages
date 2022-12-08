@@ -23,14 +23,15 @@ public class GameController : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             selectedWizardNumber++;
-            selectedWizard.GetComponent<Wizard>().enabled = false;
+            selectedWizard.GetComponent<PlayerMovement>().enabled = false;
+            selectedWizard.GetComponent<Rigidbody2D>().velocity = new Vector2(0, selectedWizard.GetComponent<Rigidbody2D>().velocity.y);
             if (selectedWizardNumber > 2)
             {
                 selectedWizardNumber = 0;
             }
 
             selectedWizard = wizards[selectedWizardNumber];
-            selectedWizard.GetComponent<Wizard>().enabled = true;
+            selectedWizard.GetComponent<PlayerMovement>().enabled = true;
 
         }
     }
